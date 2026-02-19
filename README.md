@@ -19,10 +19,18 @@ https://uml.planttext.com/plantuml/png/XLDDJyCm3BttLqGzmT0cTkrfi1MnmyR4DWcEMMfAf
 ## JSON Schema 
 
 ## Scrum Roles
+Product Owner: Jonas
+Scrum Master: Pranish
+Developers: ethan
+DevOps: Shrutika
 
 ## Github Link
 
 ## Scrum Board
 
 ## Teams Link
+Weekly Stand-up Meeting
+Platform: Microsoft Teams
+Time: Sunday 8:00 PM
+Link:https://teams.microsoft.com/l/chat/19:5ffa9121024848d3a9baec53f26a2a4f@thread.v2/conversations?context=%7B%22contextType%22%3A%22chat%22%7D
 
