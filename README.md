@@ -58,15 +58,16 @@ https://uml.planttext.com/plantuml/png/XLDDJyCm3BttLqGzmT0cTkrfi1MnmyR4DWcEMMfAf
     }
 }
 ## Scrum Roles
-Product Owner: Jonas
-Scrum Master: Pranish
-Developers: ethan
+Product Owner: Jonas<br>
+Scrum Master: Pranish<br>
+Developers: Ethan<br>
 DevOps: Shrutika
 
 ## Github Link
 https://github.com/ubnaresd/it4045-group-project.git
 
 ## Scrum Board
+
 
 ## Teams Link
 Weekly Stand-up Meeting
