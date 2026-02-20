@@ -64,6 +64,7 @@ Developers: ethan
 DevOps: Shrutika
 
 ## Github Link
+https://github.com/ubnaresd/it4045-group-project.git
 
 ## Scrum Board
 
