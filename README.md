@@ -67,7 +67,7 @@ DevOps: Shrutika
 https://github.com/ubnaresd/it4045-group-project.git
 
 ## Scrum Board
-
+https://github.com/users/ubnaresd/projects/1
 
 ## Teams Link
 Weekly Stand-up Meeting
