@@ -37,5 +37,9 @@ public class EnterpriseController {
     public String transactionsPage() {
         return "transactions";
     }
+    @GetMapping("/account")
+    public String accountPage() {
+        return "account";
+    }
 
 }

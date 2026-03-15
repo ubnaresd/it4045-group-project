@@ -5,6 +5,7 @@ Our application is a web-based Expenses Planner that allows individuals to track
 
 ## Storyboard
 https://share.balsamiq.com/c/1uwoBWLmrwscrsd6NBz7sn.jpg
+![Account Page](image.png)
 
 ## User Stories  
 - As a user, I want to be able to create an account and log in so that I can securely access my expense data.<br>
