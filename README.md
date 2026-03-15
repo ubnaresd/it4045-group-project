@@ -5,13 +5,29 @@ Our application is a web-based Expenses Planner that allows individuals to track
 
 ## Storyboard
 https://share.balsamiq.com/c/1uwoBWLmrwscrsd6NBz7sn.jpg
+![Account Page](image.png)
 
-## User Stories 
+## User Stories  
 - As a user, I want to be able to create an account and log in so that I can securely access my expense data.<br>
+    Given the user wants to create an account
+    When they go to create one using the "create account" button
+    Then they find an easy account creation service that makes an account from their details like email, name, and password so they can use it again
 - As a user, I want to be able to add new transactions (income and expenses) with details such as amount, date, category, and description so that I can keep track of my spending.<br>
+    Given the user has made a new payment/transaction
+    When they to go to the "add transaction" tab
+    Then they are able add a transaction that includes fill in boxes with amount, date, category, and a description
 - As a user, I want to be able to view my transactions in a list format and filter them by date, category, or amount so that I can easily analyze my spending habits.<br>
+    Given the user has made several transactions and entered them
+    When the user goes to the "transaction" tab
+    Then they are able to filter them with multiple categories like date, category, or by amount ranges, and can hide the filter details once sorting for adaptive and unobtrusive design
 - As a user, I want to be able to set a monthly budget for each category so that I can manage my finances better and avoid overspending.<br>
+    Given the user has an idea of a budget they want to set
+    When the user goes to the "budget" tab
+    Then they are able to easily view previous budgets and add new ones with a few clicks
 - As a user, I want to easily see when I am close to reaching my budget limit for a category so that I can adjust my spending accordingly.
+    Given the user is close to breaking their limit for their budget
+    When the user goes to add a transaction in the "add transaction" tab and enters a category for which there is a budget
+    Then the system will have a small popup warning them that they will breach their spending limit or are close if they are within $100 of breaking it.
 
 ## Class Diagram 
 https://uml.planttext.com/plantuml/png/XLDDJyCm3BttLqGzmT0cTkrfi1MnmyR4DWcEMMfAf7mfSOGcn7ydJJ_MRXDSAllPB-_9TcSEgKKlHP8mGPqZUmUMV2U4Z8aFuRB8o7w_N4H0KGaPsQBbgem0ICh5037XZIzjYsVgFdk5EsAXv0x1tjp6LEYIgrEiFJQ9DmL5s5ZzmGK4xASrjhDKESgGQzNumnCoi4cbzWepiW369HKHgnuDIFZMAJXckQce0_juDA6j9xKBGFJ5B0Jom6IJ52001rRdeLXgUsnyiYRzQvQjG4iT29s1jM0Fx8GVVL42DhA7c0n4fLOOrl8ErAwgC8A2IuuF5pCBZgXWNWIPhG7LxgS3Nwlbg-2-Dd2vfISkiBkbHhbRG3kJh1lMF_EdneXZ_MGj2ChByyuejbpFNrPv2FAtJRxUvbLplEfqcfBncAJtayaexLElbJjRLshrc9EaVvBfgEwOzgZT7VJeqnDz1gge_hnV
