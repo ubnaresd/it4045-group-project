@@ -20,6 +20,10 @@ https://uml.planttext.com/plantuml/png/XLDDJyCm3BttLqGzmT0cTkrfi1MnmyR4DWcEMMfAf
 
 <img width="740" height="807" alt="Image" src="https://github.com/user-attachments/assets/ad555c45-bca9-4f35-9f23-0c2d89672cbc" />
 
+Service Layer
+
+<img width="809" height="579" alt="Image" src="https://github.com/user-attachments/assets/6ac4671d-28ea-4bac-b960-030456f7b0d2" />
+
 ## JSON Schema 
 {
     "$schema": "http://json-schema.org/draft-06/schema#",
