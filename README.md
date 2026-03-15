@@ -18,13 +18,50 @@ https://uml.planttext.com/plantuml/png/XLDDJyCm3BttLqGzmT0cTkrfi1MnmyR4DWcEMMfAf
 
 ## JSON Schema 
 {
-    "$schema": "http://json-schema.org/draft-06/schema#",
-    "$ref": "#/definitions/JSONSchemaMorri2Ei",
-    "definitions": {
-        "JSONSchemaMorri2Ei": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
+"title": "Expense Planner",
+  "type": "object",
+
+  "properties": {
+    "user": { "$ref": "#/$defs/User" },
+    "category": {"$ref": "#/$defs/Category"},
+    "transaction": {"$ref": "#/$defs/Transaction"}
+    
+  },
+
+  "$defs": {
+    "User": {
+      "title": "User",
+      "type": "object",
+      "required": ["userId", "userName", "email", "passwordHash"],
+      "properties": {
+        "userId": { "type": "integer" },
+        "userName": { "type": "string", "minLength": 1 },
+        "email": { "type": "string", "format": "email" },
+        "passwordHash": { "type": "string", "minLength": 1 }
+      }
+    },
+    "Category": {
+        "title": "Category",
+        "type": "object",
+        "required": ["categoryId", "name", "userId"],
+        "properties": {
+            "categoryId": {
+                "type": "integer"
+            },
+            "name": {
+                "type": "string",
+                "minLength": 1
+            },
+            "userId": {
+                "type": "integer"
+            }
+           }
+    },
+    "Transaction": {
+      "title": "Transaction",
+      "type": "object",
+      "required": ["expenseId", "amount", "email", "description", "category", "date", "user"],
+      "properties": {
                 "expenseId": {
                     "type": "integer"
                 },
@@ -44,18 +81,10 @@ https://uml.planttext.com/plantuml/png/XLDDJyCm3BttLqGzmT0cTkrfi1MnmyR4DWcEMMfAf
                 "user": {
                     "type": "string"
                 }
-            },
-            "required": [
-                "amount",
-                "category",
-                "date",
-                "description",
-                "expenseId",
-                "user"
-            ],
-            "title": "JSONSchemaMorri2Ei"
         }
     }
+    
+  }
 }
 ## Scrum Roles
 Product Owner: Jonas<br>
