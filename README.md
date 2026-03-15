@@ -5,6 +5,8 @@ Our application is a web-based Expenses Planner that allows individuals to track
 
 ## Storyboard
 https://share.balsamiq.com/c/1uwoBWLmrwscrsd6NBz7sn.jpg
+![Image](https://github.com/user-attachments/assets/f9f97928-d476-43f8-ad80-54ea45201f54)
+
 
 ## User Stories 
 - As a user, I want to be able to create an account and log in so that I can securely access my expense data.<br>
@@ -15,6 +17,8 @@ https://share.balsamiq.com/c/1uwoBWLmrwscrsd6NBz7sn.jpg
 
 ## Class Diagram 
 https://uml.planttext.com/plantuml/png/XLDDJyCm3BttLqGzmT0cTkrfi1MnmyR4DWcEMMfAf7mfSOGcn7ydJJ_MRXDSAllPB-_9TcSEgKKlHP8mGPqZUmUMV2U4Z8aFuRB8o7w_N4H0KGaPsQBbgem0ICh5037XZIzjYsVgFdk5EsAXv0x1tjp6LEYIgrEiFJQ9DmL5s5ZzmGK4xASrjhDKESgGQzNumnCoi4cbzWepiW369HKHgnuDIFZMAJXckQce0_juDA6j9xKBGFJ5B0Jom6IJ52001rRdeLXgUsnyiYRzQvQjG4iT29s1jM0Fx8GVVL42DhA7c0n4fLOOrl8ErAwgC8A2IuuF5pCBZgXWNWIPhG7LxgS3Nwlbg-2-Dd2vfISkiBkbHhbRG3kJh1lMF_EdneXZ_MGj2ChByyuejbpFNrPv2FAtJRxUvbLplEfqcfBncAJtayaexLElbJjRLshrc9EaVvBfgEwOzgZT7VJeqnDz1gge_hnV
+
+<img width="740" height="807" alt="Image" src="https://github.com/user-attachments/assets/ad555c45-bca9-4f35-9f23-0c2d89672cbc" />
 
 ## JSON Schema 
 {
