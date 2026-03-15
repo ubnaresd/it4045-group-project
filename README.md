@@ -4,7 +4,7 @@
 Our application is a web-based Expenses Planner that allows individuals to track and plan their spending in one place. The target users are those who struggle to keep track of all the bills they have to pay and save money more consistently. The system will allow the users to record their income and expenses, group transactions into different categories (such as rent, food, utilities, and subscriptions), and use a budgeting feature to see how much money they have left over to spend in each category for the month.
 
 ## Storyboard
-https://share.balsamiq.com/c/1uwoBWLmrwscrsd6NBz7sn.jpg
+![Image](https://github.com/user-attachments/assets/a41804a7-e288-42cf-b6c2-2c48a8577494)
 
 ## User Stories 
 - As a user, I want to be able to create an account and log in so that I can securely access my expense data.<br>
@@ -14,17 +14,54 @@ https://share.balsamiq.com/c/1uwoBWLmrwscrsd6NBz7sn.jpg
 - As a user, I want to easily see when I am close to reaching my budget limit for a category so that I can adjust my spending accordingly.
 
 ## Class Diagram 
-https://uml.planttext.com/plantuml/png/XLDDJyCm3BttLqGzmT0cTkrfi1MnmyR4DWcEMMfAf7mfSOGcn7ydJJ_MRXDSAllPB-_9TcSEgKKlHP8mGPqZUmUMV2U4Z8aFuRB8o7w_N4H0KGaPsQBbgem0ICh5037XZIzjYsVgFdk5EsAXv0x1tjp6LEYIgrEiFJQ9DmL5s5ZzmGK4xASrjhDKESgGQzNumnCoi4cbzWepiW369HKHgnuDIFZMAJXckQce0_juDA6j9xKBGFJ5B0Jom6IJ52001rRdeLXgUsnyiYRzQvQjG4iT29s1jM0Fx8GVVL42DhA7c0n4fLOOrl8ErAwgC8A2IuuF5pCBZgXWNWIPhG7LxgS3Nwlbg-2-Dd2vfISkiBkbHhbRG3kJh1lMF_EdneXZ_MGj2ChByyuejbpFNrPv2FAtJRxUvbLplEfqcfBncAJtayaexLElbJjRLshrc9EaVvBfgEwOzgZT7VJeqnDz1gge_hnV
+<img width="740" height="807" alt="Image" src="https://github.com/user-attachments/assets/80edddaa-2222-4b6c-b0ed-2595e6f75fce" />
 
 ## JSON Schema 
 {
-    "$schema": "http://json-schema.org/draft-06/schema#",
-    "$ref": "#/definitions/JSONSchemaMorri2Ei",
-    "definitions": {
-        "JSONSchemaMorri2Ei": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
+"title": "Expense Planner",
+  "type": "object",
+
+  "properties": {
+    "user": { "$ref": "#/$defs/User" },
+    "category": {"$ref": "#/$defs/Category"},
+    "transaction": {"$ref": "#/$defs/Transaction"}
+    
+  },
+
+  "$defs": {
+    "User": {
+      "title": "User",
+      "type": "object",
+      "required": ["userId", "userName", "email", "passwordHash"],
+      "properties": {
+        "userId": { "type": "integer" },
+        "userName": { "type": "string", "minLength": 1 },
+        "email": { "type": "string", "format": "email" },
+        "passwordHash": { "type": "string", "minLength": 1 }
+      }
+    },
+    "Category": {
+        "title": "Category",
+        "type": "object",
+        "required": ["categoryId", "name", "userId"],
+        "properties": {
+            "categoryId": {
+                "type": "integer"
+            },
+            "name": {
+                "type": "string",
+                "minLength": 1
+            },
+            "userId": {
+                "type": "integer"
+            }
+           }
+    },
+    "Transaction": {
+      "title": "Transaction",
+      "type": "object",
+      "required": ["expenseId", "amount", "email", "description", "category", "date", "user"],
+      "properties": {
                 "expenseId": {
                     "type": "integer"
                 },
@@ -44,18 +81,10 @@ https://uml.planttext.com/plantuml/png/XLDDJyCm3BttLqGzmT0cTkrfi1MnmyR4DWcEMMfAf
                 "user": {
                     "type": "string"
                 }
-            },
-            "required": [
-                "amount",
-                "category",
-                "date",
-                "description",
-                "expenseId",
-                "user"
-            ],
-            "title": "JSONSchemaMorri2Ei"
         }
     }
+    
+  }
 }
 ## Scrum Roles
 Product Owner: Jonas<br>
