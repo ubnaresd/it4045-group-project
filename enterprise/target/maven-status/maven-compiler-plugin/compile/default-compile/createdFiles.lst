@@ -1,2 +1,6 @@
 com\expenseplanner\enterprise\EnterpriseController.class
+com\expenseplanner\enterprise\service\ExpenseServiceImpl.class
+com\expenseplanner\enterprise\model\Expense.class
+com\expenseplanner\enterprise\service\ExpenseService.class
+com\expenseplanner\enterprise\repository\ExpenseJpaRepository.class
 com\expenseplanner\enterprise\EnterpriseApplication.class

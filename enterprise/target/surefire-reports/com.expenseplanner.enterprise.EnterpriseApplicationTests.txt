@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.expenseplanner.enterprise.EnterpriseApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.936 s -- in com.expenseplanner.enterprise.EnterpriseApplicationTests
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.928 s -- in com.expenseplanner.enterprise.EnterpriseApplicationTests

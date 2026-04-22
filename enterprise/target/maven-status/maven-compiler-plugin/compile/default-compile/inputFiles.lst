@@ -1,2 +1,6 @@
-C:\Users\user\IdeaProjects\IT4045-group-project-expense-planner\enterprise\src\main\java\com\expenseplanner\enterprise\EnterpriseApplication.java
-C:\Users\user\IdeaProjects\IT4045-group-project-expense-planner\enterprise\src\main\java\com\expenseplanner\enterprise\EnterpriseController.java
+C:\Users\eman1\Desktop\it4045-group-project\enterprise\src\main\java\com\expenseplanner\enterprise\EnterpriseApplication.java
+C:\Users\eman1\Desktop\it4045-group-project\enterprise\src\main\java\com\expenseplanner\enterprise\service\ExpenseService.java
+C:\Users\eman1\Desktop\it4045-group-project\enterprise\src\main\java\com\expenseplanner\enterprise\model\Expense.java
+C:\Users\eman1\Desktop\it4045-group-project\enterprise\src\main\java\com\expenseplanner\enterprise\EnterpriseController.java
+C:\Users\eman1\Desktop\it4045-group-project\enterprise\src\main\java\com\expenseplanner\enterprise\repository\ExpenseJpaRepository.java
+C:\Users\eman1\Desktop\it4045-group-project\enterprise\src\main\java\com\expenseplanner\enterprise\service\ExpenseServiceImpl.java
