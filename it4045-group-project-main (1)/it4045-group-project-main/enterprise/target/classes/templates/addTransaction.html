@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Add Transaction | Expense Planner</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/expense-planner.css}" href="/css/expense-planner.css">
+</head>
+<body class="add-transaction-page">
+<div class="story-shell">
+    <div class="browser-bar"></div>
+    <div class="top-strip">
+        <nav class="wire-nav">
+            <a th:href="@{/dashboard}">Dashboard</a>
+            <a th:href="@{/account}">Account</a>
+            <a th:href="@{/addTransaction}" class="active">Add Transaction</a>
+            <a th:href="@{/transactions}">Transactions</a>
+            <a th:href="@{/budget}">Budget</a>
+        </nav>
+    </div>
+    <div class="page-body">
+        <div class="heading-row">
+            <div class="hero-icon">+</div>
+            <h1>Add Transaction</h1>
+        </div>
+        <p class="subheading">Record income or expenses with the details required by the user stories and receive a budget warning when a spending category is close to or over its limit.</p>
+        <div class="content-grid">
+            <section class="wire-panel">
+                <div id="budgetWarning" class="alert-box"></div>
+                <div class="panel-title">Transaction Details</div>
+                <form>
+                    <div class="form-grid">
+                        <label for="transactionType">Type:</label>
+                        <select id="transactionType" class="form-control story-select">
+                            <option value="expense">Expense</option>
+                            <option value="income">Income</option>
+                        </select>
+                        <label for="amount">Amount:</label>
+                        <input id="amount" type="number" class="form-control story-input" min="0" step="0.01">
+                        <label for="date">Date:</label>
+                        <input id="date" type="date" class="form-control story-input">
+                        <label for="category">Category:</label>
+                        <select id="category" class="form-control story-select">
+                            <option value="">Select category</option>
+                            <option value="Groceries">Groceries</option>
+                            <option value="Transport">Transport</option>
+                            <option value="Entertainment">Entertainment</option>
+                            <option value="Housing">Housing</option>
+                            <option value="Salary">Salary</option>
+                        </select>
+                        <label for="merchant">Payee/Source:</label>
+                        <input id="merchant" type="text" class="form-control story-input">
+                        <label for="description">Description:</label>
+                        <textarea id="description" class="form-control story-textarea"></textarea>
+                    </div>
+                    <div class="button-row">
+                        <button type="button" class="story-button">Save Transaction</button>
+                        <button type="reset" class="story-button">Clear Form</button>
+                    </div>
+                </form>
+            </section>
+            <aside class="wire-panel">
+                <div class="panel-title">Budget Watch</div>
+                <ul class="wire-list">
+                    <li>Groceries: $540 spent of $600</li>
+                    <li>Transport: $130 spent of $250</li>
+                    <li>Entertainment: $295 spent of $300</li>
+                </ul>
+                <div class="panel-title mt-4">Entry Tips</div>
+                <ul class="wire-list">
+                    <li>Use expense for spending and income for paychecks or deposits.</li>
+                    <li>Choose a matching category to trigger budget guidance.</li>
+                    <li>Add a short description so the transaction list is easier to review later.</li>
+                </ul>
+            </aside>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script>
+    (function () {
+        var budgets = { "Groceries": { limit: 600, spent: 540 }, "Transport": { limit: 250, spent: 130 }, "Entertainment": { limit: 300, spent: 295 } };
+        var categoryInput = document.getElementById("category");
+        var amountInput = document.getElementById("amount");
+        var typeInput = document.getElementById("transactionType");
+        var warningBox = document.getElementById("budgetWarning");
+        function updateWarning() {
+            var category = categoryInput.value;
+            var amount = Number(amountInput.value || 0);
+            var transactionType = typeInput.value;
+            var budget = budgets[category];
+            warningBox.style.display = "none";
+            if (!budget || transactionType !== "expense" || amount <= 0) { return; }
+            var projected = budget.spent + amount;
+            var remaining = budget.limit - projected;
+            if (projected > budget.limit) {
+                warningBox.textContent = "Warning: this entry would exceed the " + category + " budget by $" + Math.abs(remaining).toFixed(2) + ".";
+                warningBox.style.display = "block";
+                return;
+            }
+            if (remaining <= 100) {
+                warningBox.textContent = "Heads up: this entry leaves only $" + remaining.toFixed(2) + " in the " + category + " budget.";
+                warningBox.style.display = "block";
+            }
+        }
+        categoryInput.addEventListener("change", updateWarning);
+        amountInput.addEventListener("input", updateWarning);
+        typeInput.addEventListener("change", updateWarning);
+    }());
+</script>
+</body>
+</html>

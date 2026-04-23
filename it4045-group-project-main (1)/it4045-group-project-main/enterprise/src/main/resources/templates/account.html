@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Account | Expense Planner</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/expense-planner.css}" href="/css/expense-planner.css">
+</head>
+<body class="account-page">
+<div class="story-shell">
+    <div class="browser-bar"></div>
+    <div class="top-strip">
+        <nav class="wire-nav">
+            <a th:href="@{dashboard}">Dashboard</a>
+            <a th:href="@{/account}" class="active">Account</a>
+            <a th:href="@{/addTransaction}">Add Transaction</a>
+            <a th:href="@{/transactions}">Transactions</a>
+            <a th:href="@{/budget}">Budget</a>
+        </nav>
+    </div>
+    <div class="page-body">
+        <div class="heading-row">
+            <div class="hero-avatar" aria-hidden="true"></div>
+            <h1>Account</h1>
+        </div>
+        <p class="subheading">Manage your profile details, keep your login information current, and review the basic status of your expense planner access from one page.</p>
+        <div class="content-grid">
+            <div class="account-panel">
+                <form class="form-grid">
+                    <div class="field-row">
+                        <label for="userName">User Name:</label>
+                        <input id="userName" type="text" class="form-control story-input" value="Jordan Lee">
+                    </div>
+                    <div class="field-row">
+                        <label for="email">Email:</label>
+                        <input id="email" type="email" class="form-control story-input" value="jordan.lee@example.com">
+                    </div>
+                    <div class="field-row">
+                        <label for="memberSince">Member Since:</label>
+                        <input id="memberSince" type="text" class="form-control story-input" value="April 2026" disabled="true">
+                    </div>
+                    <p class="section-title">Change Password:</p>
+                    <div class="field-row">
+                        <label for="oldPassword">Old Password:</label>
+                        <input id="oldPassword" type="password" class="form-control story-input">
+                    </div>
+                    <div class="field-row">
+                        <label for="newPassword">New Password:</label>
+                        <input id="newPassword" type="password" class="form-control story-input">
+                    </div>
+                    <div class="field-row">
+                        <label for="confirmPassword">Confirm New:</label>
+                        <input id="confirmPassword" type="password" class="form-control story-input">
+                    </div>
+                    <div class="button-row">
+                        <button type="button" class="story-button">Save<br>Profile</button>
+                        <button type="button" class="story-button">Change<br>Password</button>
+                    </div>
+                </form>
+            </div>
+            <aside class="side-panel">
+                <div class="info-title">Account Overview</div>
+                <div class="status-box">
+                    <strong>Plan Status:</strong> Active<br>
+                    <strong>Last Login:</strong> Apr 19, 2026<br>
+                    <strong>Saved Budgets:</strong> 4
+                </div>
+                <div class="info-title">Security Notes</div>
+                <ul class="wire-list">
+                    <li>Use a password that is different from your school or banking password.</li>
+                    <li>Update your password regularly if you share devices.</li>
+                    <li>Keep your email current so account recovery remains available.</li>
+                </ul>
+            </aside>
+        </div>
+        <a th:href="@{/start}" class="back-link">&larr; Back to Dashboard</a>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

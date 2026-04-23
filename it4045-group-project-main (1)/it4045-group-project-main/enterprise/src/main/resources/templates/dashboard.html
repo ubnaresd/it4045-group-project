@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Expense Planner</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/expense-planner.css}" href="/css/expense-planner.css">
+</head>
+<body class="dashboard-page">
+<div class="story-shell">
+    <div class="browser-bar"></div>
+    <div class="top-strip">
+        <nav class="wire-nav">
+            <a th:href="@{/dashbaord}" class="active">Dashboard</a>
+            <a th:href="@{/account}">Account</a>
+            <a th:href="@{/addTransaction}">Add Transaction</a>
+            <a th:href="@{/transactions}">Transactions</a>
+            <a th:href="@{/budget}">Budget</a>
+        </nav>
+    </div>
+    <div class="page-body">
+        <div class="heading-row">
+            <div class="hero-icon">D</div>
+            <h1>Dashboard</h1>
+        </div>
+        <p class="subheading">Use the dashboard as the home page for account access, transaction entry, spending review, and monthly budget planning.</p>
+        <div class="wire-cards mb-4">
+            <div class="wire-card"><div class="metric">$1,842</div><div>Spent This Month</div></div>
+            <div class="wire-card"><div class="metric">$3,950</div><div>Income Logged</div></div>
+            <div class="wire-card"><div class="metric">2</div><div>Categories Near Limit</div></div>
+        </div>
+        <div class="panel-grid">
+            <section class="wire-panel">
+                <div class="panel-title">What You Can Do</div>
+                <ul class="wire-list">
+                    <li>Create or update account details and password settings.</li>
+                    <li>Add income and expense records with amount, date, category, and description.</li>
+                    <li>Review saved transactions and narrow them by filters.</li>
+                    <li>Set monthly category budgets and monitor categories close to overspending.</li>
+                </ul>
+            </section>
+            <section class="wire-panel">
+                <div class="panel-title">Quick Actions</div>
+                <div class="action-grid">
+                    <a th:href="@{/account}" class="story-button">Open Account</a>
+                    <a th:href="@{/addTransaction}" class="story-button">Add Transaction</a>
+                    <a th:href="@{/transactions}" class="story-button">View Transactions</a>
+                    <a th:href="@{/budget}" class="story-button">Manage Budgets</a>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

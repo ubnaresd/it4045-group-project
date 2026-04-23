@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Budget | Expense Planner</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/expense-planner.css}" href="/css/expense-planner.css">
+</head>
+<body class="budget-page">
+<div class="story-shell">
+    <div class="browser-bar"></div>
+    <div class="top-strip">
+        <nav class="wire-nav">
+            <a th:href="@{/dashboard}">Dashboard</a>
+            <a th:href="@{/account}">Account</a>
+            <a th:href="@{/addTransaction}">Add Transaction</a>
+            <a th:href="@{/transactions}">Transactions</a>
+            <a th:href="@{/budget}" class="active">Budget</a>
+        </nav>
+    </div>
+    <div class="page-body">
+        <div class="heading-row">
+            <div class="hero-icon">$</div>
+            <h1>Budget</h1>
+        </div>
+        <p class="subheading">Review previous and current category budgets, add new monthly limits, and quickly spot which categories are close to exceeding their target.</p>
+        <div class="content-grid">
+            <section class="wire-panel">
+                <div class="panel-title">Current Budgets</div>
+                <div class="budget-row"><strong>Groceries</strong><br>$540 spent of $600 limit<br>$60 remaining</div>
+                <div class="budget-row"><strong>Transport</strong><br>$130 spent of $250 limit<br>$120 remaining</div>
+                <div class="budget-row"><strong>Entertainment</strong><br>$295 spent of $300 limit<br>$5 remaining</div>
+                <div class="budget-row"><strong>Dining Out</strong><br>$340 spent of $300 limit<br>Over by $40</div>
+            </section>
+            <section class="wire-panel">
+                <div class="panel-title">Add New Budget</div>
+                <form>
+                    <div class="form-grid">
+                        <label for="budgetCategory">Category:</label>
+                        <select id="budgetCategory" class="form-control story-select"><option>Choose category</option><option>Groceries</option><option>Transport</option><option>Entertainment</option><option>Housing</option><option>Dining Out</option></select>
+                        <label for="budgetMonth">Month:</label>
+                        <input id="budgetMonth" type="month" class="form-control story-input">
+                        <label for="budgetAmount">Monthly Limit:</label>
+                        <input id="budgetAmount" type="number" class="form-control story-input" min="0" step="0.01">
+                    </div>
+                    <div class="button-row">
+                        <button type="button" class="story-button">Save Budget</button>
+                    </div>
+                </form>
+                <div class="panel-title mt-4">Previous Budgets</div>
+                <ul class="wire-list">
+                    <li>Groceries - March 2026 - $550</li>
+                    <li>Transport - March 2026 - $250</li>
+                    <li>Entertainment - March 2026 - $275</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
