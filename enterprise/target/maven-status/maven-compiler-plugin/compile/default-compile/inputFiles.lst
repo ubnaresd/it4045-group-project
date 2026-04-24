@@ -1,2 +1,16 @@
-C:\Users\user\IdeaProjects\IT4045-group-project-expense-planner\enterprise\src\main\java\com\expenseplanner\enterprise\EnterpriseApplication.java
+C:\Users\user\IdeaProjects\IT4045-group-project-expense-planner\enterprise\src\main\java\com\expenseplanner\enterprise\ExternalApiService.java
+C:\Users\user\IdeaProjects\IT4045-group-project-expense-planner\enterprise\src\main\java\com\expenseplanner\enterprise\dao\ExpenseRepository.java
+C:\Users\user\IdeaProjects\IT4045-group-project-expense-planner\enterprise\src\main\java\com\expenseplanner\enterprise\ExpenseRestController.java
+C:\Users\user\IdeaProjects\IT4045-group-project-expense-planner\enterprise\src\main\java\com\expenseplanner\enterprise\service\ExpenseServiceImpl.java
+C:\Users\user\IdeaProjects\IT4045-group-project-expense-planner\enterprise\src\main\java\com\expenseplanner\enterprise\dao\InMemoryExpenseRepository.java
 C:\Users\user\IdeaProjects\IT4045-group-project-expense-planner\enterprise\src\main\java\com\expenseplanner\enterprise\EnterpriseController.java
+C:\Users\user\IdeaProjects\IT4045-group-project-expense-planner\enterprise\src\main\java\com\expenseplanner\enterprise\model\Expense.java
+C:\Users\user\IdeaProjects\IT4045-group-project-expense-planner\enterprise\src\main\java\com\expenseplanner\enterprise\dao\InMemoryBudgetRepository.java
+C:\Users\user\IdeaProjects\IT4045-group-project-expense-planner\enterprise\src\main\java\com\expenseplanner\enterprise\dao\JdbcBudgetRepository.java
+C:\Users\user\IdeaProjects\IT4045-group-project-expense-planner\enterprise\src\main\java\com\expenseplanner\enterprise\model\Budget.java
+C:\Users\user\IdeaProjects\IT4045-group-project-expense-planner\enterprise\src\main\java\com\expenseplanner\enterprise\dao\JdbcExpenseRepository.java
+C:\Users\user\IdeaProjects\IT4045-group-project-expense-planner\enterprise\src\main\java\com\expenseplanner\enterprise\ExternalApiController.java
+C:\Users\user\IdeaProjects\IT4045-group-project-expense-planner\enterprise\src\main\java\com\expenseplanner\enterprise\service\ExpenseService.java
+C:\Users\user\IdeaProjects\IT4045-group-project-expense-planner\enterprise\src\main\java\com\expenseplanner\enterprise\EnterpriseApplication.java
+C:\Users\user\IdeaProjects\IT4045-group-project-expense-planner\enterprise\src\main\java\com\expenseplanner\enterprise\dao\BudgetRepository.java
+C:\Users\user\IdeaProjects\IT4045-group-project-expense-planner\enterprise\src\main\java\com\expenseplanner\enterprise\model\CategoryBudgetStatus.java

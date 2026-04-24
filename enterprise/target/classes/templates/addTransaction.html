@@ -29,33 +29,32 @@
             <section class="wire-panel">
                 <div id="budgetWarning" class="alert-box"></div>
                 <div class="panel-title">Transaction Details</div>
-                <form>
+                <form th:action="@{/addTransaction}" method="post">
                     <div class="form-grid">
                         <label for="transactionType">Type:</label>
-                        <select id="transactionType" class="form-control story-select">
+                        <select id="transactionType" name="transactionType" class="form-control story-select">
                             <option value="expense">Expense</option>
                             <option value="income">Income</option>
                         </select>
                         <label for="amount">Amount:</label>
-                        <input id="amount" type="number" class="form-control story-input" min="0" step="0.01">
+                        <input id="amount" name="amount" type="number" class="form-control story-input" min="0.01" step="0.01" required>
                         <label for="date">Date:</label>
-                        <input id="date" type="date" class="form-control story-input">
+                        <input id="date" name="date" type="date" class="form-control story-input">
                         <label for="category">Category:</label>
-                        <select id="category" class="form-control story-select">
+                        <select id="category" name="category" class="form-control story-select">
                             <option value="">Select category</option>
                             <option value="Groceries">Groceries</option>
                             <option value="Transport">Transport</option>
                             <option value="Entertainment">Entertainment</option>
                             <option value="Housing">Housing</option>
                             <option value="Salary">Salary</option>
+                            <option value="Dining Out">Dining Out</option>
                         </select>
-                        <label for="merchant">Payee/Source:</label>
-                        <input id="merchant" type="text" class="form-control story-input">
                         <label for="description">Description:</label>
-                        <textarea id="description" class="form-control story-textarea"></textarea>
+                        <textarea id="description" name="description" class="form-control story-textarea"></textarea>
                     </div>
                     <div class="button-row">
-                        <button type="button" class="story-button">Save Transaction</button>
+                        <button type="submit" class="story-button">Save Transaction</button>
                         <button type="reset" class="story-button">Clear Form</button>
                     </div>
                 </form>
@@ -63,9 +62,7 @@
             <aside class="wire-panel">
                 <div class="panel-title">Budget Watch</div>
                 <ul class="wire-list">
-                    <li>Groceries: $540 spent of $600</li>
-                    <li>Transport: $130 spent of $250</li>
-                    <li>Entertainment: $295 spent of $300</li>
+                    <li th:each="status : ${budgetStatuses}" th:text="${status.category + ': $' + #numbers.formatDecimal(status.spent, 1, 'COMMA', 2, 'POINT') + ' spent of $' + #numbers.formatDecimal(status.limit, 1, 'COMMA', 2, 'POINT')}">Groceries: $0.00 spent of $0.00</li>
                 </ul>
                 <div class="panel-title mt-4">Entry Tips</div>
                 <ul class="wire-list">
@@ -80,9 +77,13 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script>
+<script th:inline="javascript">
     (function () {
-        var budgets = { "Groceries": { limit: 600, spent: 540 }, "Transport": { limit: 250, spent: 130 }, "Entertainment": { limit: 300, spent: 295 } };
+        var budgets = {};
+        var statusList = /*[[${budgetStatuses}]]*/ [];
+        statusList.forEach(function (status) {
+            budgets[status.category] = { limit: Number(status.limit), spent: Number(status.spent) };
+        });
         var categoryInput = document.getElementById("category");
         var amountInput = document.getElementById("amount");
         var typeInput = document.getElementById("transactionType");

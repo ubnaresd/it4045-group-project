@@ -27,18 +27,40 @@
         <p class="subheading">Browse transactions in a list format, filter them by date, category, or amount range, and collapse the filter area when you want a cleaner review view.</p>
         <section class="wire-panel">
             <div class="panel-title">Filters</div>
-            <div id="filtersPanel">
-                <div class="filter-grid">
-                    <div><label for="startDate">Start date</label><input id="startDate" type="date" class="form-control story-input"></div>
-                    <div><label for="endDate">End date</label><input id="endDate" type="date" class="form-control story-input"></div>
-                    <div><label for="category">Category</label><select id="category" class="form-control story-select"><option>All categories</option><option>Groceries</option><option>Transport</option><option>Entertainment</option><option>Housing</option><option>Salary</option></select></div>
-                    <div><label for="amountRange">Amount range</label><select id="amountRange" class="form-control story-select"><option>Any amount</option><option>$0 - $50</option><option>$51 - $200</option><option>$201 - $500</option><option>$500+</option></select></div>
+            <form th:action="@{/transactions}" method="get">
+                <div id="filtersPanel">
+                    <div class="filter-grid">
+                        <div><label for="startDate">Start date</label><input id="startDate" name="startDate" type="date" class="form-control story-input" th:value="${startDate}"></div>
+                        <div><label for="endDate">End date</label><input id="endDate" name="endDate" type="date" class="form-control story-input" th:value="${endDate}"></div>
+                        <div>
+                            <label for="category">Category</label>
+                            <select id="category" name="category" class="form-control story-select">
+                                <option value="ALL" th:selected="${selectedCategory == 'ALL'}">All categories</option>
+                                <option value="Groceries" th:selected="${selectedCategory == 'Groceries'}">Groceries</option>
+                                <option value="Transport" th:selected="${selectedCategory == 'Transport'}">Transport</option>
+                                <option value="Entertainment" th:selected="${selectedCategory == 'Entertainment'}">Entertainment</option>
+                                <option value="Housing" th:selected="${selectedCategory == 'Housing'}">Housing</option>
+                                <option value="Salary" th:selected="${selectedCategory == 'Salary'}">Salary</option>
+                                <option value="Dining Out" th:selected="${selectedCategory == 'Dining Out'}">Dining Out</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="amountRange">Amount range</label>
+                            <select id="amountRange" name="amountRange" class="form-control story-select">
+                                <option value="ANY" th:selected="${selectedAmountRange == 'ANY'}">Any amount</option>
+                                <option value="RANGE_0_50" th:selected="${selectedAmountRange == 'RANGE_0_50'}">$0 - $50</option>
+                                <option value="RANGE_51_200" th:selected="${selectedAmountRange == 'RANGE_51_200'}">$51 - $200</option>
+                                <option value="RANGE_201_500" th:selected="${selectedAmountRange == 'RANGE_201_500'}">$201 - $500</option>
+                                <option value="RANGE_500_PLUS" th:selected="${selectedAmountRange == 'RANGE_500_PLUS'}">$500+</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="button-row">
-                <button type="button" class="story-button" id="toggleFilters">Hide Filters</button>
-                <button type="button" class="story-button">Apply Filters</button>
-            </div>
+                <div class="button-row">
+                    <button type="button" class="story-button" id="toggleFilters">Hide Filters</button>
+                    <button type="submit" class="story-button">Apply Filters</button>
+                </div>
+            </form>
         </section>
         <section class="wire-panel">
             <div class="panel-title">Saved Transaction List</div>
@@ -47,10 +69,16 @@
                 <tr><th>Type</th><th>Category</th><th>Date</th><th>Description</th><th>Amount</th></tr>
                 </thead>
                 <tbody>
-                <tr><td>Expense</td><td>Groceries</td><td>Apr 17, 2026</td><td>Weekly food restock at Fresh Market</td><td>-$78.42</td></tr>
-                <tr><td>Income</td><td>Salary</td><td>Apr 15, 2026</td><td>Biweekly paycheck from Northwind Studio</td><td>$1,975.00</td></tr>
-                <tr><td>Expense</td><td>Entertainment</td><td>Apr 12, 2026</td><td>Concert tickets</td><td>-$120.00</td></tr>
-                <tr><td>Expense</td><td>Transport</td><td>Apr 02, 2026</td><td>Monthly transit pass</td><td>-$65.00</td></tr>
+                <tr th:if="${#lists.isEmpty(expenses)}">
+                    <td colspan="5">No transactions found.</td>
+                </tr>
+                <tr th:each="expense : ${expenses}">
+                    <td th:text="${expense.amount.signum() < 0 ? 'Expense' : 'Income'}">Expense</td>
+                    <td th:text="${expense.category}">Category</td>
+                    <td th:text="${#temporals.format(expense.date, 'MMM dd, yyyy')}">Apr 17, 2026</td>
+                    <td th:text="${expense.description}">Description</td>
+                    <td th:text="${(expense.amount.signum() < 0 ? '-' : '') + '$' + #numbers.formatDecimal(expense.amount.abs(), 1, 'COMMA', 2, 'POINT')}">-$0.00</td>
+                </tr>
                 </tbody>
             </table>
         </section>

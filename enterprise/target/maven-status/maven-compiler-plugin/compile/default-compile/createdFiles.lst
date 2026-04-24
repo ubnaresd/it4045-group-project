@@ -1,2 +1,16 @@
+com\expenseplanner\enterprise\dao\BudgetRepository.class
+com\expenseplanner\enterprise\dao\ExpenseRepository.class
 com\expenseplanner\enterprise\EnterpriseController.class
+com\expenseplanner\enterprise\dao\JdbcBudgetRepository.class
+com\expenseplanner\enterprise\ExternalApiController.class
+com\expenseplanner\enterprise\service\ExpenseService.class
+com\expenseplanner\enterprise\model\Budget.class
 com\expenseplanner\enterprise\EnterpriseApplication.class
+com\expenseplanner\enterprise\dao\InMemoryExpenseRepository.class
+com\expenseplanner\enterprise\model\CategoryBudgetStatus.class
+com\expenseplanner\enterprise\model\Expense.class
+com\expenseplanner\enterprise\dao\JdbcExpenseRepository.class
+com\expenseplanner\enterprise\service\ExpenseServiceImpl.class
+com\expenseplanner\enterprise\dao\InMemoryBudgetRepository.class
+com\expenseplanner\enterprise\ExpenseRestController.class
+com\expenseplanner\enterprise\ExternalApiService.class

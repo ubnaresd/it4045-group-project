@@ -28,31 +28,41 @@
         <div class="content-grid">
             <section class="wire-panel">
                 <div class="panel-title">Current Budgets</div>
-                <div class="budget-row"><strong>Groceries</strong><br>$540 spent of $600 limit<br>$60 remaining</div>
-                <div class="budget-row"><strong>Transport</strong><br>$130 spent of $250 limit<br>$120 remaining</div>
-                <div class="budget-row"><strong>Entertainment</strong><br>$295 spent of $300 limit<br>$5 remaining</div>
-                <div class="budget-row"><strong>Dining Out</strong><br>$340 spent of $300 limit<br>Over by $40</div>
+                <div class="budget-row" th:if="${#lists.isEmpty(budgetStatuses)}">No current-month budgets found.</div>
+                <div class="budget-row" th:each="status : ${budgetStatuses}">
+                    <strong th:text="${status.category}">Category</strong><br>
+                    <span th:text="${'$' + #numbers.formatDecimal(status.spent, 1, 'COMMA', 2, 'POINT') + ' spent of $' + #numbers.formatDecimal(status.limit, 1, 'COMMA', 2, 'POINT') + ' limit'}">$0.00 spent of $0.00 limit</span><br>
+                    <span th:if="${status.overLimit}" th:text="${'Over by $' + #numbers.formatDecimal(status.remaining.abs(), 1, 'COMMA', 2, 'POINT')}">Over by $0.00</span>
+                    <span th:unless="${status.overLimit}" th:text="${'$' + #numbers.formatDecimal(status.remaining, 1, 'COMMA', 2, 'POINT') + ' remaining'}">$0.00 remaining</span>
+                </div>
             </section>
             <section class="wire-panel">
                 <div class="panel-title">Add New Budget</div>
-                <form>
+                <form th:action="@{/budget}" method="post">
                     <div class="form-grid">
                         <label for="budgetCategory">Category:</label>
-                        <select id="budgetCategory" class="form-control story-select"><option>Choose category</option><option>Groceries</option><option>Transport</option><option>Entertainment</option><option>Housing</option><option>Dining Out</option></select>
+                        <select id="budgetCategory" name="budgetCategory" class="form-control story-select" required>
+                            <option value="">Choose category</option>
+                            <option value="Groceries">Groceries</option>
+                            <option value="Transport">Transport</option>
+                            <option value="Entertainment">Entertainment</option>
+                            <option value="Housing">Housing</option>
+                            <option value="Dining Out">Dining Out</option>
+                            <option value="Salary">Salary</option>
+                        </select>
                         <label for="budgetMonth">Month:</label>
-                        <input id="budgetMonth" type="month" class="form-control story-input">
+                        <input id="budgetMonth" name="budgetMonth" type="month" class="form-control story-input" th:value="${currentMonthValue}" required>
                         <label for="budgetAmount">Monthly Limit:</label>
-                        <input id="budgetAmount" type="number" class="form-control story-input" min="0" step="0.01">
+                        <input id="budgetAmount" name="budgetAmount" type="number" class="form-control story-input" min="0.01" step="0.01" required>
                     </div>
                     <div class="button-row">
-                        <button type="button" class="story-button">Save Budget</button>
+                        <button type="submit" class="story-button">Save Budget</button>
                     </div>
                 </form>
                 <div class="panel-title mt-4">Previous Budgets</div>
                 <ul class="wire-list">
-                    <li>Groceries - March 2026 - $550</li>
-                    <li>Transport - March 2026 - $250</li>
-                    <li>Entertainment - March 2026 - $275</li>
+                    <li th:if="${#lists.isEmpty(previousBudgets)}">No previous budgets found in the database.</li>
+                    <li th:each="budget : ${previousBudgets}" th:text="${budget.category + ' - ' + budget.displayMonth + ' - $' + #numbers.formatDecimal(budget.monthlyLimit, 1, 'COMMA', 2, 'POINT')}">Category - Month - $0.00</li>
                 </ul>
             </section>
         </div>

@@ -1,0 +1,19 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\enterprise",
+    "\\enterprise\\java",
+    "\\enterprise\\java\\com",
+    "\\enterprise\\java\\com\\expenseplanner",
+    "\\enterprise\\java\\com\\expenseplanner\\enterprise",
+    "\\enterprise\\java\\com\\expenseplanner\\enterprise\\service",
+    "\\enterprise\\src",
+    "\\enterprise\\src\\main",
+    "\\enterprise\\src\\main\\java",
+    "\\enterprise\\src\\main\\java\\com",
+    "\\enterprise\\src\\main\\java\\com\\expenseplanner",
+    "\\enterprise\\src\\main\\java\\com\\expenseplanner\\enterprise"
+  ],
+  "SelectedNode": "\\enterprise\\src\\main\\java\\com\\expenseplanner",
+  "PreviewInSolutionExplorer": false
+}

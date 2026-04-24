@@ -1,5 +1,6 @@
 package com.expenseplanner.enterprise;
 
+import com.expenseplanner.enterprise.dao.InMemoryBudgetRepository;
 import com.expenseplanner.enterprise.dao.InMemoryExpenseRepository;
 import com.expenseplanner.enterprise.model.Expense;
 import com.expenseplanner.enterprise.service.ExpenseServiceImpl;
