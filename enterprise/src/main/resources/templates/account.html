@@ -12,7 +12,7 @@
     <div class="browser-bar"></div>
     <div class="top-strip">
         <nav class="wire-nav">
-            <a th:href="@{dashboard}">Dashboard</a>
+            <a th:href="@{/dashboard}">Dashboard</a>
             <a th:href="@{/account}" class="active">Account</a>
             <a th:href="@{/addTransaction}">Add Transaction</a>
             <a th:href="@{/transactions}">Transactions</a>
@@ -64,7 +64,7 @@
                 <div class="status-box">
                     <strong>Plan Status:</strong> Active<br>
                     <strong>Last Login:</strong> Apr 19, 2026<br>
-                    <strong>Saved Budgets:</strong> 4
+                    <strong>Saved Budgets:</strong> <span th:text="${savedBudgetCount}">0</span>
                 </div>
                 <div class="info-title">Security Notes</div>
                 <ul class="wire-list">
@@ -74,7 +74,7 @@
                 </ul>
             </aside>
         </div>
-        <a th:href="@{/start}" class="back-link">&larr; Back to Dashboard</a>
+        <a th:href="@{/dashboard}" class="back-link">&larr; Back to Dashboard</a>
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

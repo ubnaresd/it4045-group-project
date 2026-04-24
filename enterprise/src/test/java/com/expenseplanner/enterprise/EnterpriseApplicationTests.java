@@ -1,5 +1,6 @@
 package com.expenseplanner.enterprise;
 
+import com.expenseplanner.enterprise.dao.InMemoryBudgetRepository;
 import com.expenseplanner.enterprise.dao.InMemoryExpenseRepository;
 import com.expenseplanner.enterprise.model.Expense;
 import com.expenseplanner.enterprise.service.ExpenseServiceImpl;
@@ -19,8 +20,9 @@ class EnterpriseApplicationTests {
     @BeforeEach
     void setUp()
     {
-        InMemoryExpenseRepository repository = new InMemoryExpenseRepository();
-        expenseService = new ExpenseServiceImpl(repository);
+        InMemoryExpenseRepository expenseRepository = new InMemoryExpenseRepository();
+        InMemoryBudgetRepository budgetRepository = new InMemoryBudgetRepository();
+        expenseService = new ExpenseServiceImpl(expenseRepository, budgetRepository);
     }
 
     @Test

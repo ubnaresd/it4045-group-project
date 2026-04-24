@@ -12,7 +12,7 @@
     <div class="browser-bar"></div>
     <div class="top-strip">
         <nav class="wire-nav">
-            <a th:href="@{/dashbaord}" class="active">Dashboard</a>
+            <a th:href="@{/dashboard}" class="active">Dashboard</a>
             <a th:href="@{/account}">Account</a>
             <a th:href="@{/addTransaction}">Add Transaction</a>
             <a th:href="@{/transactions}">Transactions</a>
@@ -26,9 +26,9 @@
         </div>
         <p class="subheading">Use the dashboard as the home page for account access, transaction entry, spending review, and monthly budget planning.</p>
         <div class="wire-cards mb-4">
-            <div class="wire-card"><div class="metric">$1,842</div><div>Spent This Month</div></div>
-            <div class="wire-card"><div class="metric">$3,950</div><div>Income Logged</div></div>
-            <div class="wire-card"><div class="metric">2</div><div>Categories Near Limit</div></div>
+            <div class="wire-card"><div class="metric" th:text="${'$' + #numbers.formatDecimal(spentThisMonth, 1, 'COMMA', 2, 'POINT')}">$0.00</div><div>Spent This Month</div></div>
+            <div class="wire-card"><div class="metric" th:text="${'$' + #numbers.formatDecimal(incomeThisMonth, 1, 'COMMA', 2, 'POINT')}">$0.00</div><div>Income Logged</div></div>
+            <div class="wire-card"><div class="metric" th:text="${categoriesNearLimit}">0</div><div>Categories Near Limit</div></div>
         </div>
         <div class="panel-grid">
             <section class="wire-panel">
