@@ -14,7 +14,7 @@ https://share.balsamiq.com/c/1uwoBWLmrwscrsd6NBz7sn.jpg
     Then they find an easy account creation service that makes an account from their details like email, name, and password so they can use it again
 - As a user, I want to be able to add new transactions (income and expenses) with details such as amount, date, category, and description so that I can keep track of my spending.<br>
     Given the user has made a new payment/transaction
-    When they to go to the "add transaction" tab
+    When they to go to the "add transaction" tab.
     Then they are able add a transaction that includes fill in boxes with amount, date, category, and a description
 - As a user, I want to be able to view my transactions in a list format and filter them by date, category, or amount so that I can easily analyze my spending habits.<br>
     Given the user has made several transactions and entered them
