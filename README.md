@@ -90,3 +90,28 @@ Weekly Stand-up Meeting
 Platform: Microsoft Teams
 Time: Sunday 8:00 PM
 Link:https://teams.microsoft.com/l/chat/19:5ffa9121024848d3a9baec53f26a2a4f@thread.v2/conversations?context=%7B%22contextType%22%3A%22chat%22%7D
+
+## REST API Endpoints (JSON)
+The following endpoints return JSON and are available for external consumption:
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | /api/expenses | Returns all expenses as JSON |
+| GET | /api/expenses/{id} | Returns a single expense by ID |
+| POST | /api/expenses | Adds a new expense (JSON body) |
+| PUT | /api/expenses | Updates an existing expense (JSON body) |
+| DELETE | /api/expenses/{id} | Deletes an expense by ID |
+| GET | /api/external | Returns data consumed from external team's API |
+
+## External API Integration
+This application consumes an external team's REST JSON feed via `ExternalApiService`.
+The external endpoint is called through `/api/external`.
+> Note: Replace the placeholder URL in `ExternalApiService.java` with the other team's actual deployed URL.
+
+## How to Run
+1. Clone the repository: `git clone https://github.com/ubnaresd/it4045-group-project.git`
+2. Open in IntelliJ IDEA
+3. Configure MySQL in `application.properties`
+4. Run `EnterpriseApplication.java`
+5. Visit `http://localhost:8080`
+
